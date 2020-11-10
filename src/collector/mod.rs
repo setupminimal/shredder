@@ -528,6 +528,7 @@ where
 #[cfg(test)]
 pub(crate) fn get_mock_handle() -> InternalGcRef {
     use crate::{GcSafe, Scanner};
+    use std::boxed::Box;
 
     pub(crate) struct MockAllocation;
     unsafe impl Scan for MockAllocation {

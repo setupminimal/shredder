@@ -2,6 +2,7 @@ use std::cell::{Cell, RefCell};
 use std::collections::{HashMap, HashSet};
 use std::hash::BuildHasher;
 use std::ops::Deref;
+use std::prelude::v1::*;
 use std::sync::{Arc, Mutex, RwLock, TryLockError};
 use std::time::{Duration, Instant};
 
@@ -155,9 +156,11 @@ unsafe impl<T: GcSafe> GcSafe for Arc<T> where Arc<T>: Send {}
 // TODO(issue): https://github.com/Others/shredder/issues/4
 #[cfg(test)]
 mod test {
+
     use std::cell::Cell;
     use std::panic::catch_unwind;
     use std::sync::{Mutex, RwLock};
+    use std::vec::Vec;
 
     use crate::collector::{get_mock_handle, InternalGcRef};
     use crate::{GcSafe, Scan, Scanner};

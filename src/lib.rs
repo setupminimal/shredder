@@ -39,6 +39,9 @@
     clippy::module_name_repetitions, // Sometimes clear naming calls for repetition
     clippy::multiple_crate_versions  // There is no way to easily fix this without modifying our dependencies
 )]
+#![no_std]
+
+extern crate no_std_compat as std;
 
 #[macro_use]
 extern crate crossbeam;

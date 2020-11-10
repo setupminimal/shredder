@@ -26,6 +26,10 @@ shredder_derive = "0.1.1"
 #shredder_derive = { path = "../shredder_derive" }
 stable_deref_trait = "1.1"
 
+[dependencies.no-std-compat]
+version = "0.4.1"
+features = [ "alloc", "compat_hash", "compat_sync", "compat_macros" ]
+
 [dev-dependencies]
 paste = "0.1"
 rand = "0.7.3"
@@ -33,3 +37,7 @@ trybuild = "1.0"
 
 #[profile.release]
 #debug = true
+
+[features]
+default = [ "std" ] # Default to using the std
+std = [ "no-std-compat/std" ]
